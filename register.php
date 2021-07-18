@@ -2,103 +2,97 @@
 include 'koneksi.php';
 
 
-	if(isset($_POST['register'])){
-		if(regis($_POST) > 0){
-			echo "<script>alert('Akun anda berhasil dibuat')</script>";
-			header("Location: login.php");
-		}else{
-			echo mysqli_error($conn);
-		}
-	}
+    if(isset($_POST['register'])){
+        if(regis($_POST) > 0){
+            echo "<script>alert('Akun anda berhasil dibuat')</script>";
+            header("Location: login.php");
+        }else{
+            echo mysqli_error($conn);
+        }
+    }
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<title>Halaman Registrasi</title>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-<!--===============================================================================================-->	
-	<link rel="icon" type="image/png" href="assets/login/images/icons/favicon.ico"/>
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="assets/login/vendor/bootstrap/css/bootstrap.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="assets/login/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="assets/login/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="assets/login/vendor/animate/animate.css">
-<!--===============================================================================================-->	
-	<link rel="stylesheet" type="text/css" href="assets/login/vendor/css-hamburgers/hamburgers.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="assets/login/vendor/animsition/css/animsition.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="assets/login/vendor/select2/select2.min.css">
-<!--===============================================================================================-->	
-	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="assets/login/css/util.css">
-	<link rel="stylesheet" type="text/css" href="assets/login/css/main.css">
-<!--===============================================================================================-->
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Register</title>
+
+    <!-- Custom fonts for this template-->
+    <link href="assets/sbadmin/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="assets/sbadmin/css/sb-admin-2.min.css" rel="stylesheet">
+
 </head>
-<body>
-	
-	<div class="limiter">
-		<div class="container-login100" style="background-image: url('assets/login/images/bg-01.jpg');">
-			<div class="wrap-login100 p-t-30 p-b-50">
-				<span class="login100-form-title p-b-41">
-					Register
-				</span>
-				<form class="login100-form validate-form p-b-33 p-t-5" action="" method="post">
 
-					<div class="wrap-input100 validate-input" data-validate = "Enter username">
-						<input class="input100" type="text" name="username" placeholder="User name">
-						<span class="focus-input100" data-placeholder="&#xe82a;"></span>
-					</div>
+<body class="bg-gradient-primary">
 
-					<div class="wrap-input100 validate-input" data-validate = "Enter your name">
-						<input class="input100" type="text" name="name" placeholder="Full Name">
-						<span class="focus-input100" data-placeholder="&#xe82a;"></span>
-					</div>
+    <div class="container">
 
-					<div class="wrap-input100 validate-input" data-validate="Enter password">
-						<input class="input100" type="password" name="pass1" placeholder="Password">
-						<span class="focus-input100" data-placeholder="&#xe80f;"></span>
-					</div>
-					<div class="wrap-input100 validate-input" data-validate="Enter password">
-						<input class="input100" type="password" name="pass2" placeholder="Retype Password">
-						<span class="focus-input100" data-placeholder="&#xe80f;"></span>
-					</div>
+        <div class="card o-hidden border-0 shadow-lg my-5 col-lg-5 mx-auto">
+            <div class="card-body p-0">
+                <!-- Nested Row within Card Body -->
+                <div class="row">
+                    <div class="col-lg">
+                        <div class="p-5">
+                            <div class="text-center">
+                                <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
+                            </div>
+                            <form class="user" action="" method="post">
+                                
+                                <div class="form-group">
+                                    <input type="text" class="form-control form-control-user" id="exampleInputEmail"
+                                        placeholder="User Name" name="username">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control form-control-user" id="exampleInputEmail"
+                                        placeholder="Name" name="name">
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <input type="password" class="form-control form-control-user"
+                                            id="exampleInputPassword" placeholder="Password" name="pass1">
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input type="password" class="form-control form-control-user"
+                                            id="exampleRepeatPassword" placeholder="Repeat Password" name="pass2">
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-user btn-block" name="register">
+                                  Register Account
+                                </button>
+                            <div class="text-center">
+                                <a class="small" href="login.php">Already have an account? Login!</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-					<div class="container-login100-form-btn m-t-32">
-						<button type="submit" class="login100-form-btn" name="register">
-							Sign Up
-						</button>
-					</div>
-				</form>
-			</div>
-		</div>
-	</div>
-	
+    </div>
 
-	<div id="dropDownSelect1"></div>
-	
-<!--===============================================================================================-->
-	<script src="assets/login/vendor/jquery/jquery-3.2.1.min.js"></script>
-<!--===============================================================================================-->
-	<script src="assets/login/vendor/animsition/js/animsition.min.js"></script>
-<!--===============================================================================================-->
-	<script src="assets/login/vendor/bootstrap/js/popper.js"></script>
-	<script src="assets/login/vendor/bootstrap/js/bootstrap.min.js"></script>
-<!--===============================================================================================-->
-	<script src="assets/login/vendor/select2/select2.min.js"></script>
-<!--===============================================================================================-->
-	<script src="assets/login/vendor/daterangepicker/moment.min.js"></script>
-	<script src="assets/login/vendor/daterangepicker/daterangepicker.js"></script>
-<!--===============================================================================================-->
-	<script src="assets/login/vendor/countdowntime/countdowntime.js"></script>
-<!--===============================================================================================-->
-	<script src="assets/login/js/main.js"></script>
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin-2.min.js"></script>
 
 </body>
+
 </html>

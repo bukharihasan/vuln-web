@@ -59,4 +59,16 @@ function regis($data){
 	return mysqli_affected_rows($conn);
 }
 
+
+function edit_user($data){
+
+	global $conn;
+	$id = $_POST['id'];
+	$name = mysqli_real_escape_string($conn, $data["name"]);
+
+	$password = password_hash($password, PASSWORD_DEFAULT);
+	mysqli_query($conn, "UPDATE user SET name='$name' WHERE id='$id' ");
+	return mysqli_affected_rows($conn);
+ }
+
 ?>

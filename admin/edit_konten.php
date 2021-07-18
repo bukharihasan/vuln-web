@@ -1,13 +1,16 @@
 <?php
-
 session_start();
+
 if (!isset($_SESSION['login'])) {
   header("Location: ../login.php");
   exit;
 }
+
+
 include '../koneksi.php';
 include 'header.php';
 include 'sidebar.php';
+
 
 $id = $_GET['id'];
 $result = mysqli_query($conn, "SELECT * FROM posting WHERE id = '$id';");
@@ -21,45 +24,33 @@ if (isset($_POST['edit'])) {
   
 
 }
-
 ?>
-  <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <div class="content-header">
-      <div class="container-fluid">
-        <div class="row mb-2">
-          <div class="col-sm-6">
-            <h1 class="m-0">Ubah Konten</h1>
-          </div><!-- /.col -->
-        </div><!-- /.row -->
-      </div><!-- /.container-fluid -->
-    </div>
-    <!-- /.content-header -->
 
-    <!-- Main content -->
-    <section class="content">
-      <div class="container-fluid">
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
 
+                    <!-- Page Heading -->
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800">Edit Konten</h1>
+                    </div>
 
-        <form action="" method="post">
-          <div class="form-group">
-            <label for="exampleFormControlInput1">Judul</label>
-            <input type="hidden" name="id" value="<?= $data['id'];?>">
-            <input type="text" class="form-control" id="exampleFormControlInput1" name="judul" value="<?= $data['judul'];?>">
-          </div>
-          <div class="form-group">
-            <label for="exampleFormControlTextarea1">Isi konten</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" name="isi" rows="3"><?= $data['konten'];?></textarea>
-          </div>          
-          <button type="submit" class="btn btn-primary" name="edit">Ubah</button>
-        </form>
+                    <form action="" method="post">
+                      <div class="form-group">
+                        <label for="exampleFormControlInput1">Judul</label>
+                        <input type="hidden" name="id" value="<?= $data['id'];?>">
+                        <input type="text" class="form-control" id="exampleFormControlInput1" name="judul" value="<?= $data['judul'];?>">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleFormControlTextarea1">Isi konten</label>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" name="isi" rows="3"><?= $data['konten'];?></textarea>
+                      </div>          
+                      <button type="submit" class="btn btn-primary" name="edit">Ubah</button>
+                    </form>
+                    
 
-      </div><!-- /.container-fluid -->
-    </section>
-    <!-- /.content -->
-  </div>
-  <!-- /.content-wrapper -->
-<?php 
+                </div>
+            <!-- End of Main Content -->
+
+<?php
 include 'footer.php';
 ?>
