@@ -1,7 +1,7 @@
 <?php
 include '../koneksi.php';
 $id = $_GET["id"];
-$q  = mysqli_query($conn, "SELECT * FROM posting WHERE id = {$id}") or die(mysqli_error($conn));
+$q  = mysqli_query($conn, "SELECT * FROM posting WHERE id = $id") or die(mysqli_error($conn));
 $post = mysqli_fetch_array($q);
 ?>
 
